@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspose.Words, Version=22.6.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>packages\Aspose.Words.22.6.0\lib\net461\Aspose.Words.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Words.Pdf2Word, Version=22.6.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>packages\Aspose.Words.22.6.0\lib\net461\Aspose.Words.Pdf2Word.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -61,6 +67,12 @@
     <Compile Include="Forms\Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Relatorios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Relatorios.Designer.cs">
+      <DependentUpon>Relatorios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Saida_veiculos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +87,9 @@
     <EmbeddedResource Include="Forms\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Relatorios.resx">
+      <DependentUpon>Relatorios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Saida_veiculos.resx">
       <DependentUpon>Saida_veiculos.cs</DependentUpon>
     </EmbeddedResource>
@@ -88,6 +103,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -36,9 +36,6 @@
             System.Windows.Forms.Button bt_saida_veiculos;
             System.Windows.Forms.Button bt_relatorios;
             System.Windows.Forms.Button bt_relatar_problema;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_menu));
             this.menuStrip_principal = new System.Windows.Forms.MenuStrip();
             this.ms_menu = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,11 +50,6 @@
             this.ms_fechar_sistema = new System.Windows.Forms.ToolStripMenuItem();
             this.pb_sair = new System.Windows.Forms.PictureBox();
             this.lb_sair = new System.Windows.Forms.Label();
-            this.dgv_menu = new System.Windows.Forms.DataGridView();
-            this.col_placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_data_entrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_hora_entrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lb_grid = new System.Windows.Forms.Label();
             bt_entrada_veiculos = new System.Windows.Forms.Button();
             pb_carro_entrada = new System.Windows.Forms.PictureBox();
             pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -72,7 +64,6 @@
             ((System.ComponentModel.ISupportInitialize)(pictureBox3)).BeginInit();
             this.menuStrip_principal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_sair)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_menu)).BeginInit();
             this.SuspendLayout();
             // 
             // bt_entrada_veiculos
@@ -203,7 +194,7 @@
             this.ms_sair});
             this.menuStrip_principal.Location = new System.Drawing.Point(0, 0);
             this.menuStrip_principal.Name = "menuStrip_principal";
-            this.menuStrip_principal.Size = new System.Drawing.Size(744, 24);
+            this.menuStrip_principal.Size = new System.Drawing.Size(315, 24);
             this.menuStrip_principal.TabIndex = 0;
             this.menuStrip_principal.Text = "menuStrip1";
             // 
@@ -223,12 +214,14 @@
             this.ms_registrar_entrada.Name = "ms_registrar_entrada";
             this.ms_registrar_entrada.Size = new System.Drawing.Size(214, 22);
             this.ms_registrar_entrada.Text = "Registrar Entrada";
+            this.ms_registrar_entrada.Click += new System.EventHandler(this.ms_registrar_entrada_Click);
             // 
             // ms_registrar_saida
             // 
             this.ms_registrar_saida.Name = "ms_registrar_saida";
             this.ms_registrar_saida.Size = new System.Drawing.Size(214, 22);
             this.ms_registrar_saida.Text = "Registrar Saída";
+            this.ms_registrar_saida.Click += new System.EventHandler(this.ms_registrar_saida_Click);
             // 
             // ms_relatar_problema
             // 
@@ -282,9 +275,9 @@
             this.pb_sair.AccessibleRole = System.Windows.Forms.AccessibleRole.Application;
             this.pb_sair.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pb_sair.Image = global::ProjetoEstacionamento.Properties.Resources.sair_vermelho;
-            this.pb_sair.Location = new System.Drawing.Point(29, 279);
+            this.pb_sair.Location = new System.Drawing.Point(260, 219);
             this.pb_sair.Name = "pb_sair";
-            this.pb_sair.Size = new System.Drawing.Size(36, 30);
+            this.pb_sair.Size = new System.Drawing.Size(32, 24);
             this.pb_sair.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_sair.TabIndex = 6;
             this.pb_sair.TabStop = false;
@@ -295,96 +288,11 @@
             this.lb_sair.AutoSize = true;
             this.lb_sair.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_sair.ForeColor = System.Drawing.Color.Red;
-            this.lb_sair.Location = new System.Drawing.Point(32, 310);
+            this.lb_sair.Location = new System.Drawing.Point(262, 245);
             this.lb_sair.Name = "lb_sair";
             this.lb_sair.Size = new System.Drawing.Size(29, 13);
             this.lb_sair.TabIndex = 7;
             this.lb_sair.Text = "Sair";
-            // 
-            // dgv_menu
-            // 
-            this.dgv_menu.AllowUserToAddRows = false;
-            this.dgv_menu.AllowUserToDeleteRows = false;
-            this.dgv_menu.AllowUserToOrderColumns = true;
-            this.dgv_menu.BackgroundColor = System.Drawing.Color.Silver;
-            this.dgv_menu.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgv_menu.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgv_menu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_menu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.col_placa,
-            this.col_data_entrada,
-            this.col_hora_entrada});
-            this.dgv_menu.GridColor = System.Drawing.Color.DarkGray;
-            this.dgv_menu.Location = new System.Drawing.Point(393, 58);
-            this.dgv_menu.Name = "dgv_menu";
-            this.dgv_menu.ReadOnly = true;
-            this.dgv_menu.Size = new System.Drawing.Size(339, 265);
-            this.dgv_menu.TabIndex = 12;
-            this.dgv_menu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // col_placa
-            // 
-            this.col_placa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.NullValue = null;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.col_placa.DefaultCellStyle = dataGridViewCellStyle1;
-            this.col_placa.HeaderText = "PLACA";
-            this.col_placa.MaxInputLength = 7;
-            this.col_placa.Name = "col_placa";
-            this.col_placa.ReadOnly = true;
-            this.col_placa.Width = 66;
-            // 
-            // col_data_entrada
-            // 
-            this.col_data_entrada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.col_data_entrada.DefaultCellStyle = dataGridViewCellStyle2;
-            this.col_data_entrada.HeaderText = "DATA DE ENTRADA";
-            this.col_data_entrada.MaxInputLength = 10;
-            this.col_data_entrada.Name = "col_data_entrada";
-            this.col_data_entrada.ReadOnly = true;
-            this.col_data_entrada.Width = 123;
-            // 
-            // col_hora_entrada
-            // 
-            this.col_hora_entrada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.col_hora_entrada.DefaultCellStyle = dataGridViewCellStyle3;
-            this.col_hora_entrada.HeaderText = "HORA DE ENTRADA";
-            this.col_hora_entrada.MaxInputLength = 10;
-            this.col_hora_entrada.Name = "col_hora_entrada";
-            this.col_hora_entrada.ReadOnly = true;
-            this.col_hora_entrada.Width = 124;
-            // 
-            // lb_grid
-            // 
-            this.lb_grid.AutoSize = true;
-            this.lb_grid.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_grid.ForeColor = System.Drawing.Color.Green;
-            this.lb_grid.Location = new System.Drawing.Point(486, 40);
-            this.lb_grid.Name = "lb_grid";
-            this.lb_grid.Size = new System.Drawing.Size(165, 18);
-            this.lb_grid.TabIndex = 14;
-            this.lb_grid.Text = "Veículos estacionados";
-            this.lb_grid.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frm_menu
             // 
@@ -392,10 +300,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScrollMargin = new System.Drawing.Size(55, 0);
             this.BackColor = System.Drawing.Color.Gold;
-            this.BackgroundImage = global::ProjetoEstacionamento.Properties.Resources.imagemfundo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(744, 333);
-            this.Controls.Add(this.lb_grid);
+            this.ClientSize = new System.Drawing.Size(315, 270);
             this.Controls.Add(pictureBox3);
             this.Controls.Add(pictureBox2);
             this.Controls.Add(pictureBox1);
@@ -407,7 +313,6 @@
             this.Controls.Add(bt_saida_veiculos);
             this.Controls.Add(bt_entrada_veiculos);
             this.Controls.Add(this.menuStrip_principal);
-            this.Controls.Add(this.dgv_menu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip_principal;
             this.Name = "frm_menu";
@@ -422,7 +327,6 @@
             this.menuStrip_principal.ResumeLayout(false);
             this.menuStrip_principal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_sair)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_menu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -443,11 +347,6 @@
         private System.Windows.Forms.ToolStripMenuItem ms_fechar_sistema;
         private System.Windows.Forms.PictureBox pb_sair;
         private System.Windows.Forms.Label lb_sair;
-        private System.Windows.Forms.DataGridView dgv_menu;
-        private System.Windows.Forms.Label lb_grid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_placa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_data_entrada;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_hora_entrada;
     }
 }
 

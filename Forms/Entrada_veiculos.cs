@@ -66,36 +66,40 @@ namespace ProjetoEstacionamento.Forms
                 return;
             }
 
-            Veiculo.ValidaPlaca(tb_placa_entrada.Text);
-
-            tb_dt_entrada.Text = DateTime.Now.ToShortDateString();
-            tb_hr_entrada.Text = DateTime.Now.ToString("HH:mm:ss");
-
-            List<Veiculo> listaVeiculos = new List<Veiculo>();
-            Veiculo v = new Veiculo(tb_placa_entrada.Text, tb_dt_entrada.Text, tb_hr_entrada.Text);
-            Arquivo.GravaArquivo(v);
-
-            foreach (int checados in clb_moto.CheckedIndices)
+            if (Veiculo.ValidaPlaca(tb_placa_entrada.Text) == true)
             {
-                clb_moto.SetItemChecked(checados, false);
-            }
 
-            foreach (int checados in clb_carro.CheckedIndices)
-            {
-                clb_carro.SetItemChecked(checados, false);
+                tb_dt_entrada.Text = DateTime.Now.ToShortDateString();
+                tb_hr_entrada.Text = DateTime.Now.ToString("HH:mm:ss");
+
+                List<Veiculo> listaVeiculos = new List<Veiculo>();
+                Veiculo v = new Veiculo(tb_placa_entrada.Text, tb_dt_entrada.Text, tb_hr_entrada.Text);
+                Arquivo.GravaArquivo(v);
+
+                foreach (int checados in clb_moto.CheckedIndices)
+                {
+                    clb_moto.SetItemChecked(checados, false);
+                }
+
+                foreach (int checados in clb_carro.CheckedIndices)
+                {
+                    clb_carro.SetItemChecked(checados, false);
+                }
+
+                tb_placa_entrada.Clear();
+                tb_dt_entrada.Clear();
+                tb_hr_entrada.Clear();
             }
-            
-            tb_placa_entrada.Clear();
-            tb_dt_entrada.Clear();
-            tb_hr_entrada.Clear();
+            else
+            {
+                MessageBox.Show("Não foi possível salvar os dados digitados");
+            }
         }
 
         //VERIFICA SE A PLACA É VÁLIDA (PADRÃO MERCOSUL E PADRÃO ANTIGO DO BRASIL)
         //E PREENCHE AUTOMATICAMENTE OS CAMPOS DE DATA E HORA CONFORME SISTEMA
         private void tb_placa_entrada_Leave(object sender, EventArgs e)
         {
-            Veiculo.ValidaPlaca(tb_placa_entrada.Text);
-
             tb_dt_entrada.Text = DateTime.Now.ToShortDateString();
             tb_hr_entrada.Text = DateTime.Now.ToString("HH:mm:ss");
         }

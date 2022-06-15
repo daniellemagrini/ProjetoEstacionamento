@@ -47,5 +47,17 @@ namespace ProjetoEstacionamento
             frm_saida_veiculos frm = new frm_saida_veiculos();
             frm.Show();
         }
+
+        private void ms_registrar_entrada_Click(object sender, EventArgs e)
+        {
+            frm_entrada_veiculos frm = new frm_entrada_veiculos();
+            frm.Show();
+        }
+
+        private void ms_registrar_saida_Click(object sender, EventArgs e)
+        {
+            frm_saida_veiculos frm = new frm_saida_veiculos();
+            frm.Show();
+        }
     }
 }

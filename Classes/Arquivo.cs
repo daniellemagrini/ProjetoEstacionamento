@@ -26,12 +26,26 @@ namespace ProjetoEstacionamento.Classes
                 MessageBox.Show("Arquivo com problema. Favor entrar em contato com o suporte");
             }
         }
+
+        public static void GravaArquivo(List<Veiculo> listaVeiculos)
+        {
+            try
+            {
+                StreamWriter sw = new StreamWriter("veiculosEstacionados.dat", true);
+                sw.Flush();
+                sw.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Arquivo com problema. Favor entrar em contato com o suporte");
+            }
+        }
         #endregion
 
         #region CARREGAR OS DADOS DO ARQUIVO
-        public static  void CarregarArquivo(List<Veiculo> listaVeiculos)
+        public static void CarregarArquivo(List<Veiculo> listaVeiculos)
         {
-            
+
             try
             {
                 StreamReader sr = new StreamReader("veiculosEstacionados.dat");
@@ -65,6 +79,7 @@ namespace ProjetoEstacionamento.Classes
             Arquivo.GravaArquivo(veiculo);
         }
         #endregion
-    }
+    }  
+
 }
 

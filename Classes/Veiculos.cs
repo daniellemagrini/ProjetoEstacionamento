@@ -113,20 +113,23 @@ namespace ProjetoEstacionamento.Classes
         #endregion
 
         #region VALIDAR PLACA
-        public static void ValidaPlaca(string placa)
+        public static bool ValidaPlaca(string placa)
         {
             if (string.IsNullOrWhiteSpace(placa) && string.IsNullOrEmpty(placa))
             {
                 MessageBox.Show("É necessário informar a placa do veículo. Caso o veículo não tenha placa, favor informar NOV1234.");
+                return false;
             }
 
             if (placa.Length > 8)
             {
                 MessageBox.Show("Placa Inválida");
+                return false;
             }
             if (placa.Length < 7)
             {
                 MessageBox.Show("Placa Inválida");
+                return false;
             }
             if (placa.Length == 7)
             {
@@ -135,14 +138,15 @@ namespace ProjetoEstacionamento.Classes
 
                 if (padraoMercosul.IsMatch(placa) || padraoNormal.IsMatch(placa))
                 {
-                    return;
+                    return true;
                 }
                 else
                 {
                     MessageBox.Show("Placa Inválida");
+                    return false;
                 }
             }
-
+            return false;
         }
         #endregion
 
@@ -216,11 +220,15 @@ namespace ProjetoEstacionamento.Classes
         //DEIXEI COM MANEIRAS DIFERENTES DE PUXAR OS DADOS PARA APRENDIZADO!
         public static string RetornaDataEntrada(string placa, List<Veiculo> listaVeiculos)
         {
-            int posicao = Veiculo.ProcuraVeiculos(placa, listaVeiculos);
-            Veiculo v_temp = listaVeiculos[posicao];
-            string dt_ent = v_temp.dataEntrada;
+            if (placa != null)
+            {
+                int posicao = Veiculo.ProcuraVeiculos(placa, listaVeiculos);
+                Veiculo v_temp = listaVeiculos[posicao];
+                string dt_ent = v_temp.dataEntrada;
 
-            return dt_ent;
+                return dt_ent;
+            }
+            return null;
         }
 
         public static string RetornaHoraEntrada(string placa, List<Veiculo> listaVeiculos)

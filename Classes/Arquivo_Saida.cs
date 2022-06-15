@@ -61,14 +61,20 @@ namespace ProjetoEstacionamento.Classes
             Veiculo v_temp = listaVeiculos[posicao];
             string dt_entr = v_temp.DataEntrada;
             string hr_entr = v_temp.HoraEntrada;
-            listaVeiculos.RemoveAt(posicao);            
+            listaVeiculos.RemoveAt(posicao);
+
+            File.Delete("veiculosEstacionados.dat");
+
+            StreamWriter sw_temp = new StreamWriter("veiculosEstacionados.dat", true);
+            sw_temp.Flush();
+
+            foreach (Veiculo i in listaVeiculos)
+            {
+                sw_temp.WriteLine(i.Placa + ";" + i.DataEntrada + ";" + i.HoraEntrada);
+            }
+            sw_temp.Close();
         }
-
         #endregion
 
-        #region GRAVANDO ARQUIVO DEPOIS DE DAR SAÍDA EM VEÍCULO
-        
-        #endregion
-        
     }
 }
