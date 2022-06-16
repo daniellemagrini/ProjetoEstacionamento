@@ -21,7 +21,7 @@ namespace ProjetoEstacionamento.Classes
                 MessageBox.Show("Vaga liberada");
                 sw.Close();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 MessageBox.Show("Arquivo com problema. Favor entrar em contato com o suporte");
             }
@@ -46,7 +46,7 @@ namespace ProjetoEstacionamento.Classes
                 while (!sr.EndOfStream);
                 sr.Close();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 MessageBox.Show("Arquivo com problemas");
             }

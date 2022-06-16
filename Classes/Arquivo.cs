@@ -21,7 +21,7 @@ namespace ProjetoEstacionamento.Classes
                 MessageBox.Show("Veículo salvo com sucesso");
                 sw.Close();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 MessageBox.Show("Arquivo com problema. Favor entrar em contato com o suporte");
             }
@@ -35,7 +35,7 @@ namespace ProjetoEstacionamento.Classes
                 sw.Flush();
                 sw.Close();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 MessageBox.Show("Arquivo com problema. Favor entrar em contato com o suporte");
             }
@@ -60,7 +60,7 @@ namespace ProjetoEstacionamento.Classes
                 while (!sr.EndOfStream);
                 sr.Close();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 MessageBox.Show("Arquivo com problemas ou inexistente");
             }
@@ -79,7 +79,27 @@ namespace ProjetoEstacionamento.Classes
             Arquivo.GravaArquivo(veiculo);
         }
         #endregion
-    }  
 
+        #region VER SE TEM VAGAS DISPONÍVEIS
+
+        public static bool TemVaga(List<Veiculo> listaVeiculos)
+        {
+            StreamReader sr = new StreamReader("veiculosEstacionados.dat");
+            int i = 0;
+
+            while (sr.Peek() != -1)
+            {
+                i++;
+                sr.ReadLine();
+            }
+            if (i == 50)
+            {
+                return false;
+            }
+            sr.Close();
+            return true;           
+        }   
+            #endregion
+    }
 }
 
