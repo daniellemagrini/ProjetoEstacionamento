@@ -59,45 +59,52 @@ namespace ProjetoEstacionamento.Forms
             }
             else
             {
-                if (clb_moto.CheckedIndices.Count > 0 && clb_carro.CheckedIndices.Count > 0)
+                if (Veiculo.ProcuraVeiculos(tb_placa_entrada.Text, listaVeiculos) == -1)
                 {
-                    MessageBox.Show("Obrigatório informar apenas um tipo de veículo (Moto ou Carro)");
-                    return;
-                }
-
-                if (clb_moto.CheckedIndices.Count == 0 && clb_carro.CheckedIndices.Count == 0)
-                {
-                    MessageBox.Show("Obrigatório informar o tipo de veículo (Moto ou Carro)");
-                    return;
-                }
-
-                if (Veiculo.ValidaPlaca(tb_placa_entrada.Text) == true)
-                {
-
-                    tb_dt_entrada.Text = DateTime.Now.ToShortDateString();
-                    tb_hr_entrada.Text = DateTime.Now.ToString("HH:mm:ss");
-
-                    List<Veiculo> listaVeiculos = new List<Veiculo>();
-                    Veiculo v = new Veiculo(tb_placa_entrada.Text, tb_dt_entrada.Text, tb_hr_entrada.Text);
-                    Arquivo.GravaArquivo(v);
-
-                    foreach (int checados in clb_moto.CheckedIndices)
+                    if (clb_moto.CheckedIndices.Count > 0 && clb_carro.CheckedIndices.Count > 0)
                     {
-                        clb_moto.SetItemChecked(checados, false);
+                        MessageBox.Show("Obrigatório informar apenas um tipo de veículo (Moto ou Carro)");
+                        return;
                     }
 
-                    foreach (int checados in clb_carro.CheckedIndices)
+                    if (clb_moto.CheckedIndices.Count == 0 && clb_carro.CheckedIndices.Count == 0)
                     {
-                        clb_carro.SetItemChecked(checados, false);
+                        MessageBox.Show("Obrigatório informar o tipo de veículo (Moto ou Carro)");
+                        return;
                     }
 
-                    tb_placa_entrada.Clear();
-                    tb_dt_entrada.Clear();
-                    tb_hr_entrada.Clear();
+                    if (Veiculo.ValidaPlaca(tb_placa_entrada.Text) == true)
+                    {
+
+                        tb_dt_entrada.Text = DateTime.Now.ToShortDateString();
+                        tb_hr_entrada.Text = DateTime.Now.ToString("HH:mm:ss");
+
+                        List<Veiculo> listaVeiculos = new List<Veiculo>();
+                        Veiculo v = new Veiculo(tb_placa_entrada.Text, tb_dt_entrada.Text, tb_hr_entrada.Text);
+                        Arquivo.GravaArquivo(v);
+
+                        foreach (int checados in clb_moto.CheckedIndices)
+                        {
+                            clb_moto.SetItemChecked(checados, false);
+                        }
+
+                        foreach (int checados in clb_carro.CheckedIndices)
+                        {
+                            clb_carro.SetItemChecked(checados, false);
+                        }
+
+                        tb_placa_entrada.Clear();
+                        tb_dt_entrada.Clear();
+                        tb_hr_entrada.Clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi possível salvar os dados digitados");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Não foi possível salvar os dados digitados");
+                    MessageBox.Show("Veículo já estacionado!");
                 }
             }
         }
