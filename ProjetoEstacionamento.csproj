@@ -67,6 +67,12 @@
     <Compile Include="Forms\Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Problemas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Problemas.Designer.cs">
+      <DependentUpon>Problemas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Relatorios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Problemas.resx">
+      <DependentUpon>Problemas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Relatorios.resx">
       <DependentUpon>Relatorios.cs</DependentUpon>
@@ -149,6 +158,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\sair vermelho.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carro_problema sem fundo1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

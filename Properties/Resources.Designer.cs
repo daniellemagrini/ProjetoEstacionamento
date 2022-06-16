@@ -73,6 +73,16 @@ namespace ProjetoEstacionamento.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap carro_problema_sem_fundo1 {
+            get {
+                object obj = ResourceManager.GetObject("carro_problema sem fundo1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap imagemfundo {
             get {
                 object obj = ResourceManager.GetObject("imagemfundo", resourceCulture);

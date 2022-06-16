@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Button bt_entrada_veiculos;
-            System.Windows.Forms.PictureBox pb_carro_entrada;
-            System.Windows.Forms.PictureBox pictureBox1;
-            System.Windows.Forms.PictureBox pictureBox2;
-            System.Windows.Forms.PictureBox pictureBox3;
             System.Windows.Forms.Button bt_saida_veiculos;
             System.Windows.Forms.Button bt_relatorios;
             System.Windows.Forms.Button bt_relatar_problema;
+            System.Windows.Forms.PictureBox pictureBox3;
+            System.Windows.Forms.PictureBox pictureBox2;
+            System.Windows.Forms.PictureBox pictureBox1;
+            System.Windows.Forms.PictureBox pb_carro_entrada;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_menu));
             this.menuStrip_principal = new System.Windows.Forms.MenuStrip();
             this.ms_menu = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,21 +48,21 @@
             this.ms_suporte_adm = new System.Windows.Forms.ToolStripMenuItem();
             this.ms_sair = new System.Windows.Forms.ToolStripMenuItem();
             this.ms_fechar_sistema = new System.Windows.Forms.ToolStripMenuItem();
-            this.pb_sair = new System.Windows.Forms.PictureBox();
             this.lb_sair = new System.Windows.Forms.Label();
+            this.pb_sair = new System.Windows.Forms.PictureBox();
             bt_entrada_veiculos = new System.Windows.Forms.Button();
-            pb_carro_entrada = new System.Windows.Forms.PictureBox();
-            pictureBox1 = new System.Windows.Forms.PictureBox();
-            pictureBox2 = new System.Windows.Forms.PictureBox();
-            pictureBox3 = new System.Windows.Forms.PictureBox();
             bt_saida_veiculos = new System.Windows.Forms.Button();
             bt_relatorios = new System.Windows.Forms.Button();
             bt_relatar_problema = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(pb_carro_entrada)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox3)).BeginInit();
+            pictureBox3 = new System.Windows.Forms.PictureBox();
+            pictureBox2 = new System.Windows.Forms.PictureBox();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            pb_carro_entrada = new System.Windows.Forms.PictureBox();
             this.menuStrip_principal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pb_carro_entrada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_sair)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,50 +85,6 @@
             bt_entrada_veiculos.UseCompatibleTextRendering = true;
             bt_entrada_veiculos.UseVisualStyleBackColor = false;
             bt_entrada_veiculos.Click += new System.EventHandler(this.bt_entrada_veiculos_Click);
-            // 
-            // pb_carro_entrada
-            // 
-            pb_carro_entrada.Cursor = System.Windows.Forms.Cursors.Hand;
-            pb_carro_entrada.Image = global::ProjetoEstacionamento.Properties.Resources.veiculo_frente_sem_fundo;
-            pb_carro_entrada.Location = new System.Drawing.Point(133, 90);
-            pb_carro_entrada.Name = "pb_carro_entrada";
-            pb_carro_entrada.Size = new System.Drawing.Size(26, 27);
-            pb_carro_entrada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pb_carro_entrada.TabIndex = 8;
-            pb_carro_entrada.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            pictureBox1.Image = global::ProjetoEstacionamento.Properties.Resources.veiculo_saindosem_fundo;
-            pictureBox1.Location = new System.Drawing.Point(242, 90);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(26, 27);
-            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 9;
-            pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            pictureBox2.Image = global::ProjetoEstacionamento.Properties.Resources.carro_problema_sem_fundo;
-            pictureBox2.Location = new System.Drawing.Point(133, 175);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new System.Drawing.Size(26, 27);
-            pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 10;
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            pictureBox3.Image = global::ProjetoEstacionamento.Properties.Resources.relatorio;
-            pictureBox3.Location = new System.Drawing.Point(242, 175);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new System.Drawing.Size(26, 27);
-            pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox3.TabIndex = 11;
-            pictureBox3.TabStop = false;
             // 
             // bt_saida_veiculos
             // 
@@ -166,6 +122,7 @@
             bt_relatorios.Text = "RELATÓRIOS";
             bt_relatorios.UseCompatibleTextRendering = true;
             bt_relatorios.UseVisualStyleBackColor = true;
+            bt_relatorios.Click += new System.EventHandler(this.bt_relatorios_Click);
             // 
             // bt_relatar_problema
             // 
@@ -184,6 +141,7 @@
             bt_relatar_problema.Text = "RELATAR PROBLEMA";
             bt_relatar_problema.UseCompatibleTextRendering = true;
             bt_relatar_problema.UseVisualStyleBackColor = true;
+            bt_relatar_problema.Click += new System.EventHandler(this.bt_relatar_problema_Click);
             // 
             // menuStrip_principal
             // 
@@ -228,12 +186,14 @@
             this.ms_relatar_problema.Name = "ms_relatar_problema";
             this.ms_relatar_problema.Size = new System.Drawing.Size(214, 22);
             this.ms_relatar_problema.Text = "Relatar Problema";
+            this.ms_relatar_problema.Click += new System.EventHandler(this.ms_relatar_problema_Click);
             // 
             // ms_impressao_relatorio
             // 
             this.ms_impressao_relatorio.Name = "ms_impressao_relatorio";
             this.ms_impressao_relatorio.Size = new System.Drawing.Size(214, 22);
             this.ms_impressao_relatorio.Text = "Impressão de Relatórios";
+            this.ms_impressao_relatorio.Click += new System.EventHandler(this.ms_impressao_relatorio_Click);
             // 
             // ms_ajuda
             // 
@@ -270,6 +230,61 @@
             this.ms_fechar_sistema.Size = new System.Drawing.Size(166, 22);
             this.ms_fechar_sistema.Text = "Fechar Sistema";
             // 
+            // lb_sair
+            // 
+            this.lb_sair.AutoSize = true;
+            this.lb_sair.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_sair.ForeColor = System.Drawing.Color.Red;
+            this.lb_sair.Location = new System.Drawing.Point(262, 245);
+            this.lb_sair.Name = "lb_sair";
+            this.lb_sair.Size = new System.Drawing.Size(29, 13);
+            this.lb_sair.TabIndex = 7;
+            this.lb_sair.Text = "Sair";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            pictureBox3.Image = global::ProjetoEstacionamento.Properties.Resources.relatorio;
+            pictureBox3.Location = new System.Drawing.Point(242, 175);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new System.Drawing.Size(26, 27);
+            pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 11;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            pictureBox2.Image = global::ProjetoEstacionamento.Properties.Resources.carro_problema_sem_fundo;
+            pictureBox2.Location = new System.Drawing.Point(133, 175);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new System.Drawing.Size(26, 27);
+            pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 10;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            pictureBox1.Image = global::ProjetoEstacionamento.Properties.Resources.veiculo_saindosem_fundo;
+            pictureBox1.Location = new System.Drawing.Point(242, 90);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(26, 27);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
+            // 
+            // pb_carro_entrada
+            // 
+            pb_carro_entrada.Cursor = System.Windows.Forms.Cursors.Hand;
+            pb_carro_entrada.Image = global::ProjetoEstacionamento.Properties.Resources.veiculo_frente_sem_fundo;
+            pb_carro_entrada.Location = new System.Drawing.Point(133, 90);
+            pb_carro_entrada.Name = "pb_carro_entrada";
+            pb_carro_entrada.Size = new System.Drawing.Size(26, 27);
+            pb_carro_entrada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pb_carro_entrada.TabIndex = 8;
+            pb_carro_entrada.TabStop = false;
+            // 
             // pb_sair
             // 
             this.pb_sair.AccessibleRole = System.Windows.Forms.AccessibleRole.Application;
@@ -282,17 +297,6 @@
             this.pb_sair.TabIndex = 6;
             this.pb_sair.TabStop = false;
             this.pb_sair.Click += new System.EventHandler(this.pb_sair_Click);
-            // 
-            // lb_sair
-            // 
-            this.lb_sair.AutoSize = true;
-            this.lb_sair.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_sair.ForeColor = System.Drawing.Color.Red;
-            this.lb_sair.Location = new System.Drawing.Point(262, 245);
-            this.lb_sair.Name = "lb_sair";
-            this.lb_sair.Size = new System.Drawing.Size(29, 13);
-            this.lb_sair.TabIndex = 7;
-            this.lb_sair.Text = "Sair";
             // 
             // frm_menu
             // 
@@ -320,12 +324,12 @@
             this.Text = "ATOS Parking";
             this.TransparencyKey = System.Drawing.Color.Transparent;
             this.Load += new System.EventHandler(this.frm_menu_Load);
-            ((System.ComponentModel.ISupportInitialize)(pb_carro_entrada)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox3)).EndInit();
             this.menuStrip_principal.ResumeLayout(false);
             this.menuStrip_principal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pb_carro_entrada)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_sair)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

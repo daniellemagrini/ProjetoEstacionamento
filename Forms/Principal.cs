@@ -59,5 +59,27 @@ namespace ProjetoEstacionamento
             frm_saida_veiculos frm = new frm_saida_veiculos();
             frm.Show();
         }
+
+        private void bt_relatorios_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Estará disponível em breve!");
+        }
+
+        private void ms_impressao_relatorio_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Estará disponível em breve!");
+        }
+
+        private void bt_relatar_problema_Click(object sender, EventArgs e)
+        {
+            frm_problemas frm = new frm_problemas();
+            frm.Show();
+        }
+
+        private void ms_relatar_problema_Click(object sender, EventArgs e)
+        {
+            frm_problemas frm = new frm_problemas();
+            frm.Show();
+        }
     }
 }

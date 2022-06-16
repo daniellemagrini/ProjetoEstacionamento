@@ -98,8 +98,26 @@ namespace ProjetoEstacionamento.Classes
             }
             sr.Close();
             return true;           
-        }   
-            #endregion
+        }
+        #endregion
+
+        #region GRAVAR ARQUIVO DE PROBLEMA
+        public static void GravaArquivoProblema(string data, string problema)
+        {
+            try
+            {
+                StreamWriter sw = new StreamWriter("relatorioProblemas.dat", true);
+                sw.Flush();
+                sw.WriteLine("DATA:" + data + "; PROBLEMA: " + problema);
+                MessageBox.Show("Problema reportado com sucesso");
+                sw.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Arquivo com problema. Favor entrar em contato com o suporte");
+            }
+        }
+        #endregion
     }
 }
 
