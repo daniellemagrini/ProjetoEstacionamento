@@ -81,5 +81,20 @@ namespace ProjetoEstacionamento
             frm_problemas frm = new frm_problemas();
             frm.Show();
         }
+
+        private void ms_suporte_ti_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Telefone: (11)11111-9999\r\nEmail: suporteti@email.com");
+        }
+
+        private void ms_suporte_adm_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Telefone: (11)11111-8888\r\nEmail: suporteadm@email.com");
+        }
+
+        private void ms_fechar_sistema_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

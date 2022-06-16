@@ -207,14 +207,16 @@
             // ms_suporte_ti
             // 
             this.ms_suporte_ti.Name = "ms_suporte_ti";
-            this.ms_suporte_ti.Size = new System.Drawing.Size(149, 22);
+            this.ms_suporte_ti.Size = new System.Drawing.Size(180, 22);
             this.ms_suporte_ti.Text = "Suporte TI";
+            this.ms_suporte_ti.Click += new System.EventHandler(this.ms_suporte_ti_Click);
             // 
             // ms_suporte_adm
             // 
             this.ms_suporte_adm.Name = "ms_suporte_adm";
-            this.ms_suporte_adm.Size = new System.Drawing.Size(149, 22);
+            this.ms_suporte_adm.Size = new System.Drawing.Size(180, 22);
             this.ms_suporte_adm.Text = "Suporte Adm";
+            this.ms_suporte_adm.Click += new System.EventHandler(this.ms_suporte_adm_Click);
             // 
             // ms_sair
             // 
@@ -227,8 +229,9 @@
             // ms_fechar_sistema
             // 
             this.ms_fechar_sistema.Name = "ms_fechar_sistema";
-            this.ms_fechar_sistema.Size = new System.Drawing.Size(166, 22);
+            this.ms_fechar_sistema.Size = new System.Drawing.Size(180, 22);
             this.ms_fechar_sistema.Text = "Fechar Sistema";
+            this.ms_fechar_sistema.Click += new System.EventHandler(this.ms_fechar_sistema_Click);
             // 
             // lb_sair
             // 
