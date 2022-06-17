@@ -154,62 +154,66 @@ namespace ProjetoEstacionamento.Classes
 
         public static double ValorPagar(string placa, List<Veiculo> listaVeiculos)
         {
-            int posicao = Veiculo.ProcuraVeiculos(placa, listaVeiculos);
-            Veiculo vTemp = listaVeiculos[posicao];
-            string pl = vTemp.placa;
-            string dt_ent = vTemp.dataEntrada;
-            string hr_ent = vTemp.horaEntrada;
-            double valorHora = 2.50;
-            int valorDia = 45;
             double valorTotal = 0;
-            string dataSaida = DateTime.Now.ToShortDateString();
-            string horaSaida = DateTime.Now.ToString("HH:mm:ss");
 
-            while (placa == pl)
-            {             
-                DateTime dtt_saida = Convert.ToDateTime(dataSaida);
-                DateTime dtt_entrada = Convert.ToDateTime(vTemp.dataEntrada);
-                DateTime dth_saida = Convert.ToDateTime(horaSaida);
-                DateTime dth_entrada = Convert.ToDateTime(vTemp.horaEntrada); 
-                TimeSpan dt = dtt_saida.Subtract(dtt_entrada);
-                TimeSpan dth_total = dth_saida - dth_entrada;
-                double tempo_min = dth_total.TotalMinutes;
-                double tempo_hr = dth_total.TotalHours;
+            if (placa != "")
+            {
+                int posicao = Veiculo.ProcuraVeiculos(placa, listaVeiculos);
+                Veiculo vTemp = listaVeiculos[posicao];
+                string pl = vTemp.placa;
+                string dt_ent = vTemp.dataEntrada;
+                string hr_ent = vTemp.horaEntrada;
+                double valorHora = 2.50;
+                int valorDia = 45;
+                string dataSaida = DateTime.Now.ToShortDateString();
+                string horaSaida = DateTime.Now.ToString("HH:mm:ss");
 
-                if (dt.TotalDays > 0)
+                while (placa == pl)
                 {
-                    valorTotal = valorDia * dt.TotalDays;
-                    return valorTotal;
-                }
-                if (dt.TotalDays == 0)
-                {
-                    if (tempo_min <= 70) // tolerância de 10min. resto da divisão sobra 6
+                    DateTime dtt_saida = Convert.ToDateTime(dataSaida);
+                    DateTime dtt_entrada = Convert.ToDateTime(vTemp.dataEntrada);
+                    DateTime dth_saida = Convert.ToDateTime(horaSaida);
+                    DateTime dth_entrada = Convert.ToDateTime(vTemp.horaEntrada);
+                    TimeSpan dt = dtt_saida.Subtract(dtt_entrada);
+                    TimeSpan dth_total = dth_saida - dth_entrada;
+                    double tempo_min = dth_total.TotalMinutes;
+                    double tempo_hr = dth_total.TotalHours;
+
+                    if (dt.TotalDays > 0)
                     {
-                        valorTotal = valorHora;
+                        valorTotal = valorDia * dt.TotalDays;
                         return valorTotal;
                     }
-                    else if (tempo_min > 60)
+                    if (dt.TotalDays == 0)
                     {
-                        if (tempo_min % 60 >= 0 && tempo_min % 60 <= 6)
+                        if (tempo_min <= 70) // tolerância de 10min. resto da divisão sobra 6
                         {
-                            double tempoHora = tempo_min / 60;
-                            int tempoHora_temp = Convert.ToInt32(tempoHora);
-                            valorTotal = valorHora * tempoHora_temp;
+                            valorTotal = valorHora;
                             return valorTotal;
                         }
-                        else
+                        else if (tempo_min > 60)
                         {
-                            double tempoHora = tempo_min / 60;
-                            int tempoHora_temp = Convert.ToInt32(tempoHora);
-                            valorTotal = (valorHora * tempoHora_temp) + valorHora;
-                            return valorTotal;
+                            if (tempo_min % 60 >= 0 && tempo_min % 60 <= 6)
+                            {
+                                double tempoHora = tempo_min / 60;
+                                int tempoHora_temp = Convert.ToInt32(tempoHora);
+                                valorTotal = valorHora * tempoHora_temp;
+                                return valorTotal;
+                            }
+                            else
+                            {
+                                double tempoHora = tempo_min / 60;
+                                int tempoHora_temp = Convert.ToInt32(tempoHora);
+                                valorTotal = (valorHora * tempoHora_temp) + valorHora;
+                                return valorTotal;
+                            }
                         }
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Total de dias/horas inválidos. Favor contatar o suporte");
-                }
+                    else
+                    {
+                        MessageBox.Show("Total de dias/horas inválidos. Favor contatar o suporte");
+                    }
+                }                
             }
             return valorTotal;
         }
@@ -220,7 +224,7 @@ namespace ProjetoEstacionamento.Classes
         //DEIXEI COM MANEIRAS DIFERENTES DE PUXAR OS DADOS PARA APRENDIZADO!
         public static string RetornaDataEntrada(string placa, List<Veiculo> listaVeiculos)
         {
-            if (placa != null)
+            if (placa != "")
             {
                 int posicao = Veiculo.ProcuraVeiculos(placa, listaVeiculos);
                 Veiculo v_temp = listaVeiculos[posicao];

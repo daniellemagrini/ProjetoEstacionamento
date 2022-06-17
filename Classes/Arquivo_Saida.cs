@@ -17,8 +17,8 @@ namespace ProjetoEstacionamento.Classes
             {
                 StreamWriter sw = new StreamWriter("historicoSaida.dat", true);
                 sw.Flush();
-                sw.WriteLine(objeto.Placa + ";" + objeto.DataEntrada + ";" + objeto.HoraEntrada + ";" + objeto.DataSaida + ";" + objeto.HoraSaida + ";" + objeto.ValorTotal);
-                MessageBox.Show("Vaga liberada");
+                sw.WriteLine(objeto.Placa + ";" + objeto.DataEntrada + ";" + objeto.HoraEntrada + ";" + objeto.DataSaida + ";" + objeto.HoraSaida + ";" + objeto.Valor);
+                MessageBox.Show("Vaga liberada" + objeto.Valor);
                 sw.Close();
             }
             catch (Exception)
